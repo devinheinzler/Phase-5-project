@@ -13,7 +13,6 @@
 ActiveRecord::Schema.define(version: 2022_12_15_214039) do
 
   create_table "campaigns", force: :cascade do |t|
-    t.integer "campaign_id"
     t.string "campaign_title"
     t.string "campaign_story"
     t.string "campaign_setting"
@@ -49,7 +48,6 @@ ActiveRecord::Schema.define(version: 2022_12_15_214039) do
   end
 
   create_table "reviews", force: :cascade do |t|
-    t.integer "review_id"
     t.integer "user_id"
     t.integer "campaign_id"
     t.string "campaign_title"
@@ -60,7 +58,6 @@ ActiveRecord::Schema.define(version: 2022_12_15_214039) do
   end
 
   create_table "users", force: :cascade do |t|
-    t.integer "user_id"
     t.string "first_name"
     t.string "last_name"
     t.string "email_address"

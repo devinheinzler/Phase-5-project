@@ -2,7 +2,6 @@ class CreateCampaigns < ActiveRecord::Migration[6.1]
   def change
     create_table :campaigns do |t|
 
-      t.integer :campaign_id
       t.string  :campaign_title
       t.string  :campaign_story
       t.string  :campaign_setting

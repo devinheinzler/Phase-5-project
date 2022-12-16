@@ -16,14 +16,14 @@ puts 'Clearing the database, one moment....'
 puts 'Planting seeds...'
 
 puts 'Creating users...'
-User.create (user_id: 1, first_name: "Devin", last_name: "Heinzler", email_address: "devinheinzler271@gmail.com", password: "example1")
-User.create (user_id: 2, first_name: "Kate", last_name: "Gelati", email_address: "kateg@gmail.com", password: "example2")
-User.create (user_id: 3, first_name: "Kevin", last_name: "Sasse", email_address: "kevins@gmail.com", password: "example3")
-User.create (user_id: 4, first_name: "Misha", last_name: "Tuesday", email_address: "mishatue@gmail.com", password: "example4")
-User.create (user_id: 5, first_name: "Bo", last_name: "Hauptly", email_address: "bohaup@gmail.com", password: "example5")
+User.create(first_name: "Devin", last_name: "Heinzler", email_address: "devinheinzler271@gmail.com", password: "example1")
+User.create(first_name: "Kate", last_name: "Gelati", email_address: "kateg@gmail.com", password: "example2")
+User.create(first_name: "Kevin", last_name: "Sasse", email_address: "kevins@gmail.com", password: "example3")
+User.create(first_name: "Misha", last_name: "Tuesday", email_address: "mishatue@gmail.com", password: "example4")
+User.create(first_name: "Bo", last_name: "Hauptly", email_address: "bohaup@gmail.com", password: "example5")
 
 puts "Creating some cool campaigns, this may take a minute..."
-Campaign.create (campaign_id: 1, 
+Campaign.create( 
 campaign_title: "The Dark Tower", 
 campaign_story: "The kingdom of Andalasia is being threatened by a dark force that is slowly taking over the land. A powerful necromancer, who has been using dark magic to raise the dead, is planning to take over the kingdom and plunge it into eternal darkness. The players are a group of heroes who must journey to the Dark Tower, where the necromancer resides, and stop him before it's too late.", 
 campaign_setting: "The kingdom of Andalasia, a medieval fantasy realm with small villages, dense forests, and treacherous mountains. The kingdom is ruled by a wise and benevolent king, but recently, strange things have been happening in the land. Strange creatures have been sighted, and some of the villagers have gone missing.", 
@@ -31,7 +31,7 @@ campaign_NPCs: "King Reginald: The wise and benevolent ruler of Andalasia. He en
 campaign_challenges: "The players must navigate the treacherous forests and mountains to reach the Dark Tower. They will encounter various creatures along the way, such as goblins, trolls, and undead skeletons, that they must battle in order to continue on their quest. The players will also have to solve puzzles and riddles in order to proceed, as the Dark Tower is filled with traps and other dangers. Once they reach the Dark Tower, they must face off against the Necromancer and his army of undead minions in a final, epic battle.", 
 campaign_climax: "The players reach the Dark Tower and face off against the Necromancer in a final battle. Using their skills and abilities, they are able to defeat the Necromancer and save the kingdom from his evil plans.", 
 campaign_aftermath: "The kingdom is saved, and the players are hailed as heroes. They return to their villages, where they are greeted with celebrations and rewards. The kingdom is able to return to a state of peace and prosperity, thanks to the bravery and determination of the players.")
-Campaign.create (campaign_id: 2, 
+Campaign.create( 
 campaign_title: "The Crown of the Shadow King", 
 campaign_story: "The players are a group of adventurers who have been hired by the resistance, a secret group of rebels fighting against the Shadow King's rule. The resistance has learned of a powerful artifact known as the Crown of the Shadow King, which is said to grant its wearer immense magical powers. The players must journey to the Shadow King's castle, located in the heart of the dark forest, and retrieve the crown before the Shadow King can use its power to cement his rule over the kingdom.", 
 campaign_setting: "The kingdom of Ravenwood, a dark and foreboding land ruled by the tyrannical Shadow King. The kingdom is bordered by treacherous mountains to the north, a deep and murky swamp to the south, and a sprawling forest to the east. The only safe haven for travelers is the bustling city of Evermore, located in the heart of the kingdom.", 
@@ -39,7 +39,7 @@ campaign_NPCs: "The Shadow King: The tyrannical ruler of Ravenwood, the Shadow K
 campaign_challenges: "The treacherous journey to the Shadow King's castle: The players must navigate the dangerous forest and avoid the Shadow King's patrols if they hope to reach the castle. The Castlekeeper: The Castlekeeper will not let the players enter the castle easily, and they must defeat him in combat or outsmart him in order to gain access. The Shadow King's guards: The castle is filled with the Shadow King's loyal guards, who will stop at nothing to protect their master. The players must fight their way through the castle and defeat the guards if they hope to reach the Crown of the Shadow King.", 
 campaign_climax: "The players finally reach the Crown of the Shadow King, but they discover that it is guarded by a powerful magical beast. In a tense and epic battle, the players must use all of their skills and knowledge to defeat the beast and claim the crown.", 
 campaign_aftermath: "With the Crown of the Shadow King in their possession, the players must make a difficult decision. Do they use the crown's power to overthrow the Shadow King and take control of the kingdom themselves, or do they destroy the crown and prevent its power from falling into the wrong hands? The outcome of their decision will shape the future of Ravenwood and determine the fate of its people.")
-Campaign.create (campaign_id: 3, 
+Campaign.create( 
 campaign_title: "The Cursed Tomb of the Unquiet Dead", 
 campaign_story: "The players must journey through the treacherous valley, braving dangerous creatures and treacherous terrain in order to reach the tomb. Along the way, they will encounter several non-player characters (NPCs) who will either help or hinder their progress, including a wise old hermit who knows the secrets of the valley, a band of ruthless mercenaries who are also after the artifact, and a tribe of barbarians who worship the ancient evil that is said to haunt the valley.", 
 campaign_setting: "The campaign takes place in a remote and desolate valley, rumored to be cursed by an ancient evil. The players are a group of adventurers who have been hired by a wealthy collector to explore the valley and retrieve a powerful artifact that is said to be hidden in a long-abandoned tomb at its center.", 
@@ -49,12 +49,12 @@ campaign_aftermath: "After the players successfully retrieve the artifact and de
 campaign_NPCs: "Here's your chance to think a little outside the box! Using examples from other campaigns, feel free to create the NPCs you'll encounter in your world!")
 
 puts 'Creating reviews for all the campaigns, stand by...'
-Review.create(review_id: 1, user_id: 1, campaign_id: 1, campaign_title: "The Dark Tower", review_content: "Hoenstly a mid-tier campaign, but was fun for my friends that were new to the game", star_rating: 3)
-Review.create(review_id: 2, user_id: 2, campaign_id: 2, campaign_title: "The Crown of the Shadow King", review_content: "Great time, quick and easy. A little shallow.", star_rating: 4)
-Review.create(review_id: 3, user_id: 3, campaign_id: 3, campaign_title: "The Cursed Tomb of the Unquiet Dead", review_content: "Didn't like that we had to create more of our own stuff", star_rating: 2)
-Review.create(review_id: 4, user_id: 4, campaign_id: 1, campaign_title: "The Dark Tower", review_content: "Amazing campaign, we're all new to this and it was a great way to get our boots on the ground", star_rating: 5)
-Review.create(review_id: 5, user_id: 5, campaign_id: 2, campaign_title: "The Crown of the Shadow King", review_content: "Great room for adding your own stuff. Big fan", star_rating: 4)
-Review.create(review_id: 6, user_id: 3, campaign_id: 3, campaign_title: "The Cursed Tomb of the Unquiet Dead", review_content: "Loved the extra room for our own creativity!", star_rating: )
+Review.create(user_id: 1, campaign_id: 1, campaign_title: "The Dark Tower", review_content: "Hoenstly a mid-tier campaign, but was fun for my friends that were new to the game", star_rating: 3)
+Review.create(user_id: 2, campaign_id: 2, campaign_title: "The Crown of the Shadow King", review_content: "Great time, quick and easy. A little shallow.", star_rating: 4)
+Review.create(user_id: 3, campaign_id: 3, campaign_title: "The Cursed Tomb of the Unquiet Dead", review_content: "Didn't like that we had to create more of our own stuff", star_rating: 2)
+Review.create(user_id: 4, campaign_id: 1, campaign_title: "The Dark Tower", review_content: "Amazing campaign, we're all new to this and it was a great way to get our boots on the ground", star_rating: 5)
+Review.create(user_id: 5, campaign_id: 2, campaign_title: "The Crown of the Shadow King", review_content: "Great room for adding your own stuff. Big fan", star_rating: 4)
+Review.create(user_id: 3, campaign_id: 3, campaign_title: "The Cursed Tomb of the Unquiet Dead", review_content: "Loved the extra room for our own creativity!", star_rating: 4)
 
 puts "Creatin some characters, not an easy task..."
 Character.create(user_id: 1, campaign_id: 1, character_name: "Vogoth", character_image: "", race_name: "Dragonborn", race_image: "", race_description: "Dragonborn tend to extremes, making a conscious choice for one side or the other in the cosmic war between good and evil. Most dragonborn are good, but those who side with evil can be terrible villains.", race_trait_name: "breath-weapon", class_name: "Cleric", class_image: "", subclass: "Life", subclass_feature: "Blessed Healer", race_proficiencies: "No race proficiencies available", character_background: "Acolyte", character_language: "Draconic", character_alignment: "Chaotic-Good", character_notes: "very cool")
