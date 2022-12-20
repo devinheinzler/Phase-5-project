@@ -30,7 +30,7 @@ class CharactersController < ApplicationController
 
     private
     def character_params
-        params.permit(:character_name, :character_image, :race_name, :race_image, :race_description, :race_trait_name, :subrace_name, :class_name, :class_image, :subclass, :subclass_feature, :race_proficiencies, :character_background, :character_language, :character_alignment, :character_notes)
+        params.permit(:character_name, :character_image, :race_name, :race_trait_name, :class_name, :class_image, :subclass_feature, :race_proficiencies, :character_background, :character_alignment, :character_notes)
     end
 
     def not_found_response
