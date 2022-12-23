@@ -12,6 +12,7 @@ import Navbar from './Navbar';
 import Reviewlist from './Reviewlist';
 import ShowReviews from './ShowReviews';
 import Landing from './Landing';
+import Reviewform from './Reviewform';
 
 const charactersUrl = "http://localhost:3000/characters"
 const campaignsUrl = "http://localhost:3000/campaigns"
@@ -19,12 +20,21 @@ const reviewsUrl = "http://localhost:3000/reviews"
 
 function App() {
 
+  const [selectedCampaign, setSelectedCampaign] = useState()
   const [currentUser, setCurrentUser] = useState()
   const [characters, setCharacters] = useState([])
   const [campaigns, setCampaigns] = useState([])
-  const [reviews, setReviews] = useState({})
+  // const [reviews, setReviews] = useState({})
   const [loggedIn, setLoggedIn] = useState(localStorage.email_address ? true : false)
-
+console.log(currentUser)
+  
+  const campaignReview = (campaign_id, campaign_title) => {
+    setSelectedCampaign({
+      user: currentUser.id,
+      campaign_title: campaign_title,
+      campaign_id: campaign_id
+    })
+  }
   const getCharacters = () => {
     fetch(charactersUrl)
     .then(res => res.json())
@@ -37,16 +47,16 @@ function App() {
     .then(campaignData => (setCampaigns(campaignData)))
   }
 
-  const getReviews = () => {
-    fetch(reviewsUrl)
-    .then(res => res.json())
-    .then(reviewsData => (setReviews(reviewsData)))
-  }
+  // const getReviews = () => {
+  //   fetch(reviewsUrl)
+  //   .then(res => res.json())
+  //   .then(reviewsData => (setReviews(reviewsData)))
+  // }
 
   useEffect (() => {
     getCharacters()
     getCampaigns()
-    getReviews()
+    // getReviews()
   }, [])
 
   function toggleLoggedIn() {
@@ -65,11 +75,12 @@ function App() {
           <Routes>
             <Route exact path='/characters' element={<CharacterList characters={characters} />} />
             <Route path='/character/:id' element={<ShowCharacter/>}/>
-            <Route exact path='/campaigns' element={<CampaignList campaigns={campaigns} />} />
+            <Route exact path='/campaigns' element={<CampaignList campaigns={campaigns} campaignReview={campaignReview} />} />
             <Route path='/campaign/:id' element={<ShowCampaign/>}/>
-            <Route exact path='/reviews' element={<Reviewlist reviews={reviews} />} />
+            <Route exact path='/reviews' element={<Reviewlist/>} />
             <Route path='/review/:id' element={<ShowReviews/>} />
             <Route path='/Landing' element={<Landing/>}/>
+            <Route path='/Reviewform' element={<Reviewform selectedCampaign={selectedCampaign}/>}/>
           </Routes>
       </div>
   );

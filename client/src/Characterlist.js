@@ -1,14 +1,14 @@
 import React from "react";
 import CharacterCard from "./CharacterCard";
 
-function CharacterList({characters}) {
+function CharacterList({characters, campaignReview}) {
 
     return (
         characters ?
         <>
             
             <header>Select a Pre-Generated Character Below!</header>
-            {characters.map(character => <CharacterCard key={character.id} character={character} />)}
+            {characters.map(character => <CharacterCard key={character.id} campaignReview={campaignReview} character={character} />)}
         </>
 :
     <p>Loading...</p>)

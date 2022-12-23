@@ -4,6 +4,10 @@ class ReviewsController < ApplicationController
         render json: Review.all, status: :ok
     end
 
+        def create
+            render json: Review.create(review_params), status: :ok
+        end
+
     def show
         review = Review.find(params[:id])
         render json: review.to_json, status: :ok
