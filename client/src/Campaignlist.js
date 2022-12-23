@@ -2,14 +2,14 @@ import React from "react";
 import CampaignCard from "./Campaigncard";
 
 
-function CampaignList({campaigns}) {
+function CampaignList({campaigns, campaignReview}) {
 
     return (
         campaigns ?
         <>
             
             <header>Select a Pre-Generated Campaign Below!</header>
-            {campaigns.map(campaign => <CampaignCard key={campaign.id} campaign={campaign} />)}
+            {campaigns.map(campaign => <CampaignCard key={campaign.id} campaignReview={campaignReview} campaign={campaign} />)}
         </>
 :
     <p>Loading...</p>)

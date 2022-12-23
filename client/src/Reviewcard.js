@@ -9,11 +9,11 @@ console.log(review)
 
     return (
         <div>
-            <header>{review.campaign_title}</header>
-            <h3>{review.star_rating}</h3>
-            <h2>-{`${review.user.first_name} ${review.user.last_name}`}</h2>
+            <h1>{review.campaign_title}</h1>
+            <h3>-{review.star_rating}/5 ⭐</h3>
+            <h4>-{`${review.user.first_name} ${review.user.last_name}`}</h4>
             <NavLink to={`/review/${review.id}`}>
-                <h3>See How it Went! ➡</h3>
+                <button>See What They Said! ➡</button>
             </NavLink>
         </div>
     )
