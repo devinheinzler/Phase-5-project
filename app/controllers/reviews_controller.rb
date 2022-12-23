@@ -16,8 +16,8 @@ class ReviewsController < ApplicationController
     end
 
     private
-    def campaign_params
-        params.permit(:campaign_id, :campaign_title, :review_content, :star_rating)
+    def review_params
+        params.permit(:user_id, :campaign_id, :campaign_title, :review_content, :star_rating)
     end
 
 end

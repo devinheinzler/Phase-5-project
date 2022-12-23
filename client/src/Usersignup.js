@@ -1,8 +1,10 @@
 import { useEffect, useState } from "react";
+import { NavLink, useNavigate } from "react-router-dom";
 
 
-function Usersignup() {
+function Usersignup({toggleLoggedIn, setCurrentUser}) {
 
+    const navigate = useNavigate()
     const [formData, setFormData] = useState({email_address: "", password: "", first_name: "", last_name: ""})
     const [email_address, setEmail_address] = useState('');
     const [password, setPassword] = useState('');
@@ -27,23 +29,38 @@ function Usersignup() {
             },
             body: JSON.stringify(formData)
         })
-        .then(res => res.json())
-        .then(console.log)
-
+        .then(res => {
+            if(res.ok) {
+                res.json().then(newUser => {
+                    localStorage.email_address = newUser.email_address
+                    setCurrentUser(newUser)
+                    toggleLoggedIn() 
+                navigate('/Landing')})
+                }
+                else {
+                    res.json().then(res => console.log(res))
+                }})
     }
 
     return(
         <div>
+            <div className="welcome-div">
+                <p>
+                    {`Welcome to Dungeons and Dragons (for Dummies!) 
+                    To get started, please sign up below!`}
+                </p>
+            </div>
             <form onSubmit={handleSignUp}>
     <div className="email-pass-align">
-    <small>Email Address:</small><input type="text" name="email_address" id="email_address" value={formData["email_address"]} onChange={(e) => setFormData({...formData, email_address: e.target.value})}/>
-    <small>Password:</small><input type="password" name="password" id="password" value={formData["password"]} onChange={(e) => setFormData({...formData, password: e.target.value})}/>
-    <small>First Name:</small><input type="text" name="first_name" id="first_name" value={formData["first_name"]} onChange={(e) => setFormData({...formData, first_name: e.target.value})}/>
-    <small>Last Name:</small><input type="text" name="last_name" id="last_name" value={formData["last_name"]} onChange={(e) => setFormData({...formData, last_name: e.target.value})}/>    
+    <small>Email Address:</small><input type="text" name="email_address" id="email_address" value={formData["email_address"]} onChange={(e) => setFormData({...formData, email_address: e.target.value})}/><br/>
+    <small>Password:</small><input type="password" name="password" id="password" value={formData["password"]} onChange={(e) => setFormData({...formData, password: e.target.value})}/><br/>
+    <small>First Name:</small><input type="text" name="first_name" id="first_name" value={formData["first_name"]} onChange={(e) => setFormData({...formData, first_name: e.target.value})}/><br/>
+    <small>Last Name:</small><input type="text" name="last_name" id="last_name" value={formData["last_name"]} onChange={(e) => setFormData({...formData, last_name: e.target.value})}/><br/>    
         {/* <div className="password-confirm-align">
             <input type="password" value={passwordConfirm} onChange={e => setPasswordConfirm(e.target.value)} placeholder = "Confirm Password"/>
         </div> */}
     <br/>
+    <p>Already a user? <NavLink to={`./Login`}></NavLink></p>
     <button type="submit">
         Sign Up!
     </button>

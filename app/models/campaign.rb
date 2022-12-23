@@ -3,4 +3,5 @@ class Campaign < ApplicationRecord
     has_many :characters
     has_many :users, through: :reviews
     has_many :users, through: :characters
+    has_many :users
 end

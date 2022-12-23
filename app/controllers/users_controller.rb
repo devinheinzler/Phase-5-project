@@ -3,7 +3,7 @@ class UsersController < ApplicationController
 
 
     def create
-        # render json: User.create(user_params), status: :ok
+        render json: User.create(user_params), status: :ok
     end
     def update
         user = User.find(params[:id])
