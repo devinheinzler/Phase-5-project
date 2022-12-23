@@ -39,6 +39,7 @@ function ShowCharacter() {
             <div className='class-features'>
                 <h1>{character.class_name} Features</h1>
                 <p>{character.subclass_feature}</p>
+                <button>Add to My Characters</button>
             </div>
         </div>
         :

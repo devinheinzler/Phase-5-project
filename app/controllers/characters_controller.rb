@@ -28,6 +28,12 @@ class CharactersController < ApplicationController
         render json: {}, status: :ok
     end
 
+    def user_characters
+        user = User.find(params[:id])
+        userCharacters = user.characters
+        render json: userCharacters, status: :ok
+    end
+
     private
     def character_params
         params.permit(:character_name, :character_image, :race_name, :race_trait_name, :class_name, :class_image, :subclass_feature, :race_proficiencies, :character_background, :character_alignment, :character_notes)

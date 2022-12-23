@@ -16,6 +16,12 @@ class CampaignsController < ApplicationController
         render json: campaign, status: :ok
     end
 
+    def user_campaigns
+        user = User.find(params[:id])
+        userCampaigns = user.campaigns
+        render json: userCampaigns, status: :ok
+    end
+
     private
     def campaign_params
         params.permit(:campaign_title, :campaign_story, :campaign_setting, :campaign_NPCs, :campaign_challenges, :campaign_aftermath)

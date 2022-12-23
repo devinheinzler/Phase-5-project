@@ -1,6 +1,7 @@
 import {useState} from 'react'
+import { NavLink } from 'react-router-dom'
 
-function Login({toggleLoggedIn}) {
+function Login({toggleLoggedIn, setCurrentUser}) {
     const [formData, setFormData] = useState({email_address: "", password: ""})
 
     function onLogin() {
@@ -17,6 +18,7 @@ function Login({toggleLoggedIn}) {
             if (r.email_address) {
                 localStorage.removeItem("error")
                 localStorage.email_address = r.email_address
+                setCurrentUser(r)
             } else {
                 localStorage.error = "invalid email/password combination"
             }
@@ -29,6 +31,7 @@ function Login({toggleLoggedIn}) {
         fetch("http://localhost:3000/logout")
         .then(setFormData({email_address: "", password: ""}))
         localStorage.removeItem("email_address")
+        setCurrentUser()
         toggleLoggedIn()
     }
 
