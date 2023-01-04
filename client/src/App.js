@@ -43,6 +43,7 @@ console.log(currentUser)
     .then(res => res.json())
     .then(characterData => (setCharacters(characterData)))
   }
+  // console.log(characters)
 
   const getCampaigns = () => {
     fetch(campaignsUrl)

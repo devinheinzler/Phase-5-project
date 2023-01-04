@@ -19,7 +19,7 @@ function Login({toggleLoggedIn, setCurrentUser}) {
         .then(r => {
             if (r.email_address) {
                 localStorage.removeItem("error")
-                localStorage.user = r
+                localStorage.email_address = r.email_address
                 setCurrentUser(r)
                 navigate('/Landing')
             } else {

@@ -2,19 +2,35 @@ class CharactersController < ApplicationController
     rescue_from ActiveRecord::RecordNotFound, with: :not_found_response
 
     def create
-        # if session[:user_id]
-            render json: Character.create(character_params), status: :ok
-        # else
-        #     render json: {error: "Not authorized"}, status: :unauthorized
-        # end
+        template = CharacterTemplate.find(params[:character_template_id])
+        new_character = Character.create!(
+            user_id: params[:user_id], 
+            campaign_id: params[:campaign_id], 
+            character_name: template.character_name, 
+            character_image: template.character_image, 
+            race_name: template.race_name, 
+            race_trait_name: template.race_trait_name, 
+            class_name: template.class_name, 
+            class_image: template.class_image, 
+            subclass_feature: template.subclass_feature, 
+            race_proficiencies: template.race_proficiencies, 
+            character_background: template.character_background, 
+            character_alignment: template.character_alignment,
+            character_template_id: template.id, 
+            character_notes: '')
+            render json: new_character, status: :ok
+    end
+
+    def find_templates
+        CharacterTemplate.find(params[])
     end
 
     def index
-        render json: Character.all, status: :ok
+        render json: CharacterTemplate.all, status: :ok
     end
 
     def show
-        render json: Character.find(params[:id]), status: :ok
+        render json: CharacterTemplate.find(params[:id]), status: :ok
     end
 
     def update

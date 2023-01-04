@@ -13,7 +13,7 @@ function ShowCharacter({currentUser}) {
         .then(res => res.json())
         .then(characterDetails => setCharacter(characterDetails))
     }, [])
-// console.log(character)
+console.log(character)
 function handleClick(){
     
     fetch(`http://localhost:3000/user/${currentUser.id}/user_characters`, {
@@ -23,7 +23,7 @@ function handleClick(){
         "Accept": "application/json"
     },
     body: JSON.stringify({
-        character_id: character.id,
+        character_template_id: id,
         user_id: currentUser.id
         })})
         .then(res => {

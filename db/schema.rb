@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_12_19_192944) do
+ActiveRecord::Schema.define(version: 2023_01_04_163624) do
 
   create_table "campaigns", force: :cascade do |t|
     t.string "campaign_title"
@@ -20,6 +20,21 @@ ActiveRecord::Schema.define(version: 2022_12_19_192944) do
     t.string "campaign_challenges"
     t.string "campaign_climax"
     t.string "campaign_aftermath"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "character_templates", force: :cascade do |t|
+    t.string "character_name"
+    t.string "character_image"
+    t.string "race_name"
+    t.string "race_trait_name"
+    t.string "class_name"
+    t.string "class_image"
+    t.string "subclass_feature"
+    t.string "race_proficiencies"
+    t.string "character_background"
+    t.string "character_alignment"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -40,6 +55,7 @@ ActiveRecord::Schema.define(version: 2022_12_19_192944) do
     t.string "character_notes"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "character_template_id"
   end
 
   create_table "reviews", force: :cascade do |t|
