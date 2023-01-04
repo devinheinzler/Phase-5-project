@@ -29,6 +29,7 @@ class CharactersController < ApplicationController
     end
 
     def user_characters
+        # debugger
         user = User.find(params[:id])
         userCharacters = user.characters
         render json: userCharacters, status: :ok

@@ -1,8 +1,10 @@
 import {useState} from 'react'
 import { NavLink } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 
 function Login({toggleLoggedIn, setCurrentUser}) {
     const [formData, setFormData] = useState({email_address: "", password: ""})
+    const navigate = useNavigate()
 
     function onLogin() {
         fetch("http://localhost:3000/login", {
@@ -19,6 +21,7 @@ function Login({toggleLoggedIn, setCurrentUser}) {
                 localStorage.removeItem("error")
                 localStorage.email_address = r.email_address
                 setCurrentUser(r)
+                navigate('/Landing')
             } else {
                 localStorage.error = "invalid email/password combination"
             }
@@ -26,7 +29,7 @@ function Login({toggleLoggedIn, setCurrentUser}) {
             toggleLoggedIn()
         })
     }
-
+    
     function logout() {
         fetch("http://localhost:3000/logout")
         .then(setFormData({email_address: "", password: ""}))

@@ -1,17 +1,38 @@
 import {useState, useEffect} from 'react'
-import { useParams } from 'react-router-dom'
+import { useParams, useNavigate } from 'react-router-dom'
 
 const characterUrl = "http://localhost:3000/characters"
 
-function ShowCharacter() {
+function ShowCharacter({currentUser}) {
     const {id} = useParams()
     const [character, setCharacter] = useState(null)
+    const navigate = useNavigate()
 
     useEffect(() => {
         fetch(`${characterUrl}/${id}`)
         .then(res => res.json())
         .then(characterDetails => setCharacter(characterDetails))
     }, [])
+// console.log(character)
+function handleClick(){
+    
+    fetch(`http://localhost:3000//user/${currentUser.id}/user_characters`, {
+    method: "POST",
+    headers: {
+        "Content-Type": "application/json",
+        "Accept": "application/json"
+    },
+    body: JSON.stringify({
+        character_id: character.id,
+        user_id: currentUser.id
+        })})
+        .then(res => {
+    if(res.ok) {
+        res.json().then( navigate('/MyCharacter'))
+        }
+        else {
+            res.json().then(res => console.log(res))
+        }})}
 
     return(
         character ?
@@ -39,7 +60,7 @@ function ShowCharacter() {
             <div className='class-features'>
                 <h1>{character.class_name} Features</h1>
                 <p>{character.subclass_feature}</p>
-                <button>Add to My Characters</button>
+                <button onClick={() => handleClick()}>Add to My Characters</button>
             </div>
         </div>
         :

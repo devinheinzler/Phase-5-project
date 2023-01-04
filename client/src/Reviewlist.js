@@ -16,9 +16,6 @@ function Reviewlist() {
     return (
         reviews ?
         <>
-        <NavLink to = {`/Reviewform`}>
-        <button>Leave your own review ➡</button>   
-        </NavLink>
             <header>Check Out the Campaign Reviews Below!</header>
             {reviews.map(review => <Reviewcard key={review.id} review={review} />)}
         </>

@@ -13,6 +13,8 @@ import Reviewlist from './Reviewlist';
 import ShowReviews from './ShowReviews';
 import Landing from './Landing';
 import Reviewform from './Reviewform';
+import MyCharacter from './MyCharacter';
+import MyCampaign from './MyCampaign';
 
 const charactersUrl = "http://localhost:3000/characters"
 const campaignsUrl = "http://localhost:3000/campaigns"
@@ -74,13 +76,15 @@ console.log(currentUser)
           <Navbar/>
           <Routes>
             <Route exact path='/characters' element={<CharacterList characters={characters} />} />
-            <Route path='/character/:id' element={<ShowCharacter/>}/>
+            <Route path='/character/:id' element={<ShowCharacter currentUser={currentUser}/>}/>
             <Route exact path='/campaigns' element={<CampaignList campaigns={campaigns} campaignReview={campaignReview} />} />
             <Route path='/campaign/:id' element={<ShowCampaign/>}/>
             <Route exact path='/reviews' element={<Reviewlist/>} />
             <Route path='/review/:id' element={<ShowReviews/>} />
             <Route path='/Landing' element={<Landing/>}/>
             <Route path='/Reviewform' element={<Reviewform selectedCampaign={selectedCampaign}/>}/>
+            <Route path='/MyCharacter' element={<MyCharacter currentUser={currentUser} />}/>
+            <Route path='/MyCampaign' element={<MyCampaign currentUser={currentUser} />}/>
           </Routes>
       </div>
   );

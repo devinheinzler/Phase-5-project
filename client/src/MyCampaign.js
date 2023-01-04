@@ -1,4 +1,5 @@
 import React, {useEffect, useState} from "react";
+import MyCampaignCard from "./MyCampaignCard";
 
 function MyCampaign({currentUser}) {
 
@@ -11,8 +12,14 @@ function MyCampaign({currentUser}) {
     })
 
     return(
+        userCampaigns ?
         <div>
-
+            <header>View Your Campaigns Below!</header>
+            {userCampaigns.map(userCampaign => <MyCampaignCard key={userCampaign.id} userCampaign={userCampaign} />)}
         </div>
+        :
+        <p>Loading...</p>
     )
 }
+
+export default MyCampaign
