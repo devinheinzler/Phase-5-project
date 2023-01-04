@@ -1,14 +1,16 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
+import UserContext from "./Context/UserContext";
 
 
-function Usersignup({toggleLoggedIn, setCurrentUser}) {
+function Usersignup({toggleLoggedIn}) {
 
     const navigate = useNavigate()
     const [formData, setFormData] = useState({email_address: "", password: "", first_name: "", last_name: ""})
     const [email_address, setEmail_address] = useState('');
     const [password, setPassword] = useState('');
     const [passwordConfirm, setPasswordConfirm] = useState('');
+    const {user, setUser} = useContext(UserContext)
     // const [error, setError] = useState('');
 
     function handleSignUp(e) {
@@ -32,8 +34,8 @@ function Usersignup({toggleLoggedIn, setCurrentUser}) {
         .then(res => {
             if(res.ok) {
                 res.json().then(newUser => {
-                    localStorage.email_address = newUser.email_address
-                    setCurrentUser(newUser)
+                    localStorage.user = JSON.stringify(newUser)
+                    setUser(newUser)
                     toggleLoggedIn() 
                 navigate('/Landing')})
                 }
