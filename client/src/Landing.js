@@ -1,10 +1,13 @@
 import React from "react";
+import Usersignup from "./Usersignup";
 
-function Landing() {
+function Landing({toggleLoggedIn, setCurrentUser}) {
 
 
     return(
+        
         <div>
+            <Usersignup toggleLoggedIn={toggleLoggedIn} setCurrentUser = {setCurrentUser}/>
             <div className="app-bio">
                 <header className="bio-header">
                     App Bio

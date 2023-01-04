@@ -26,15 +26,9 @@ function handleClick(){
         character_template_id: id,
         user_id: currentUser.id
         })})
-        .then(res => {
-    if(res.ok) {
-        res.json()
-        console.log(res)
-        // .then( navigate('/MyCharacter'))
-        }
-        else {
-            res.json().then(res => console.log(res))
-        }})}
+        .then(res => res.json()
+        .then(console.log)
+        )}
 
     return(
         character ?

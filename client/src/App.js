@@ -84,7 +84,7 @@ console.log(currentUser)
             <Route path='/campaign/:id' element={<ShowCampaign/>}/>
             <Route exact path='/reviews' element={<Reviewlist/>} />
             <Route path='/review/:id' element={<ShowReviews/>} />
-            <Route path='/Landing' element={<Landing/>}/>
+            <Route path='/Landing' element={<Landing/>} toggleLoggedIn={toggleLoggedIn} setCurrentUser = {setCurrentUser}/>
             <Route path='/Reviewform' element={<Reviewform selectedCampaign={selectedCampaign}/>}/>
             <Route path='/MyCharacter' element={<MyCharacter currentUser={currentUser} />}/>
             <Route path='/MyCampaign' element={<MyCampaign currentUser={currentUser} />}/>
