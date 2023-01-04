@@ -16,7 +16,7 @@ function ShowCharacter({currentUser}) {
 // console.log(character)
 function handleClick(){
     
-    fetch(`http://localhost:3000//user/${currentUser.id}/user_characters`, {
+    fetch(`http://localhost:3000/user/${currentUser.id}/user_characters`, {
     method: "POST",
     headers: {
         "Content-Type": "application/json",
@@ -28,7 +28,9 @@ function handleClick(){
         })})
         .then(res => {
     if(res.ok) {
-        res.json().then( navigate('/MyCharacter'))
+        res.json()
+        console.log(res)
+        // .then( navigate('/MyCharacter'))
         }
         else {
             res.json().then(res => console.log(res))

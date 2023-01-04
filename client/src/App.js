@@ -15,6 +15,7 @@ import Landing from './Landing';
 import Reviewform from './Reviewform';
 import MyCharacter from './MyCharacter';
 import MyCampaign from './MyCampaign';
+import { UserProivder } from './Context/UserContext';
 
 const charactersUrl = "http://localhost:3000/characters"
 const campaignsUrl = "http://localhost:3000/campaigns"
@@ -27,7 +28,7 @@ function App() {
   const [characters, setCharacters] = useState([])
   const [campaigns, setCampaigns] = useState([])
   // const [reviews, setReviews] = useState({})
-  const [loggedIn, setLoggedIn] = useState(localStorage.email_address ? true : false)
+  const [loggedIn, setLoggedIn] = useState(localStorage.user ? true : false)
 console.log(currentUser)
   
   const campaignReview = (campaign_id, campaign_title) => {
@@ -66,6 +67,7 @@ console.log(currentUser)
 }
 
   return (
+    <UserProivder>
       <div className="App">
           <Login toggleLoggedIn={toggleLoggedIn} setCurrentUser = {setCurrentUser} />
           {loggedIn ?
@@ -87,6 +89,7 @@ console.log(currentUser)
             <Route path='/MyCampaign' element={<MyCampaign currentUser={currentUser} />}/>
           </Routes>
       </div>
+    </UserProivder>
   );
 }
 
