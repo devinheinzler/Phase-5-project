@@ -12,6 +12,9 @@ function Navbar() {
             </div>
             <div className='navbar-div'>
                 <ul>
+                <NavLink to={`/Landing`}>
+                        <button>About</button>
+                    </NavLink>
                     <NavLink to={`/characters`}>
                         <button>Character Selector</button>
                     </NavLink>
@@ -24,10 +27,10 @@ function Navbar() {
                     {localStorage.email_address ?
                     <>
                     
-                        <NavLink to={`/MyCharacters`}>
+                        <NavLink to={`/MyCharacter`}>
                             <button>My Characters</button>
                         </NavLink>
-                        <NavLink to={`/MyCampaigns`}>
+                        <NavLink to={`/MyCampaign`}>
                             <button>My Campaigns</button>
                         </NavLink>
                         </>
