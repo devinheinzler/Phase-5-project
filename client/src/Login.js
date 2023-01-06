@@ -21,7 +21,7 @@ function Login({toggleLoggedIn, setCurrentUser}) {
                 localStorage.removeItem("error")
                 localStorage.email_address = r.email_address
                 setCurrentUser(r)
-                navigate('/Landing')
+                navigate('/MyCharacter')
             } else {
                 localStorage.error = "invalid email/password combination"
             }
@@ -43,17 +43,19 @@ function Login({toggleLoggedIn, setCurrentUser}) {
         
         <div className='logout-align'>
             <p>
-                logged in as {localStorage.email_address}!
+                logged in as {localStorage.email_address}!<br/>
+
                     <button onClick={() => logout()}>Logout</button>
                 
             </p>
         </div>
         :
-        <div className='login-align'>
+        <div className='login-container'>
+            <header>Please sign in</header>
             <p>
                 <b><small>{localStorage.error ? localStorage.error : null}</small></b><br />
                 
-                <small>Email Address:</small><input type="text" name="email_address" id="email_address" value={formData["email_address"]} onChange={(e) => setFormData({...formData, email_address: e.target.value})}></input><br />
+                <small>Email:</small><input type="text" name="email_address" id="email_address" value={formData["email_address"]} onChange={(e) => setFormData({...formData, email_address: e.target.value})}></input><br />
                 
                 <small>password:</small><input type="password" name="password" id="password" value={formData["password"]} onChange={(e) => setFormData({...formData, password: e.target.value})}></input><br />
     

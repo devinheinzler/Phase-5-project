@@ -15,21 +15,33 @@ function ShowCampaign() {
 
     return(
         campaign ?
-        <div>
-            <h1>Your Journey Awaits!</h1>
-            <h2>Story:</h2>
-            <p>{campaign.campaign_story}</p>
-            <h2>Setting:</h2>
-            <p>{campaign.campaign_setting}</p>
-            <h2>NPC's:</h2>
-            <p>{campaign.campaign_NPCs}</p>
-            <h2>Challenges:</h2>
-            <p>{campaign.campaign_challenges}</p>
-            <h2>Climax:</h2>
-            <p>{campaign.campaign_climax}</p>
-            <h2>Aftermath:</h2>
-            <p>{campaign.campaign_aftermath}</p>
-            <button>Add to My Campaigns</button>
+        <div className='campaign-parent'>
+                <div className='story'>
+                    <h1>Your Journey Awaits!</h1>
+                    <h2>Story:</h2>
+                    <p>{campaign.campaign_story}</p>
+                </div>
+                <div className='setting'>
+                    <h2>Setting:</h2>
+                    <p>{campaign.campaign_setting}</p>
+                </div>
+                <div className='npcs'>
+                    <h2>NPC's:</h2>
+                    <p>{campaign.campaign_NPCs}</p>    
+                </div>
+                <div className='challenges'>
+                    <h2>Challenges:</h2>
+                    <p>{campaign.campaign_challenges}</p>
+                </div>
+                <div className='climax'>
+                    <h2>Climax:</h2>
+                    <p>{campaign.campaign_climax}</p>
+                </div>
+                <div className='aftermath'>
+                <h2>Aftermath:</h2>
+                    <p>{campaign.campaign_aftermath}</p>
+                    <button>Add to My Campaigns</button>
+                </div>
         </div>
         :
         <p>Loading...</p>

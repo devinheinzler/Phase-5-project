@@ -10,7 +10,7 @@ const {campaign_title, id, campaign_story} = campaign
 
 
     return (
-        <div>
+        <div className="campaign-card">
                 <h1>{campaign_title}</h1>
             <h2>Campaign Story:</h2>
             <p>{campaign_story}</p>
@@ -18,7 +18,7 @@ const {campaign_title, id, campaign_story} = campaign
                 <button>View Campaign Details ➡</button>
             </NavLink>
             <NavLink to = {`/Reviewform`}>
-                <button onClick={() => campaignReview(id, campaign_title)}>Leave a Review ➡</button>   
+                <button onClick={() => campaignReview(id, campaign_title)}>Leave a Review 📎</button>   
             </NavLink>
         </div>
     )

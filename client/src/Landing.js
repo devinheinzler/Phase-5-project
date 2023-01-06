@@ -5,13 +5,13 @@ function Landing({toggleLoggedIn, setCurrentUser}) {
 
 
     return(
-        
         <div>
             <Usersignup toggleLoggedIn={toggleLoggedIn} setCurrentUser = {setCurrentUser}/>
+        <div className="bio-parent">
             <div className="app-bio">
-                <header className="bio-header">
+                <h1 className="bio-header">
                     App Bio
-                </header>
+                </h1>
                 <p>
                 {`Dungeons and Dragons (for Dummies) was born from the desire to break into the game, but not knowing where to start.
                 Many users of this site will likely have the same conversation we had before developing this site. You want kickstart 
@@ -23,9 +23,9 @@ function Landing({toggleLoggedIn, setCurrentUser}) {
                 </p>
             </div>
             <div className="app-instructions">
-                <header>
+                <h1>
                     App Instructions
-                </header>
+                </h1>
                 <p>
                     {`This app is very simple. It's meant to take the leg work out of creating a character and imagining a decent campaign. 
                     So, do exactly that! The first step is signing up or logging in. You can use the sight without doing that, but you won't 
@@ -35,6 +35,7 @@ function Landing({toggleLoggedIn, setCurrentUser}) {
                     some insight on whether or not you'll enjoy your time on the adventure. Cheers!`}
                 </p>
             </div>
+        </div>
         </div>
     )
 }

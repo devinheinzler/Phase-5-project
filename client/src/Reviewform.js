@@ -30,7 +30,7 @@ console.log(newReview)
   }
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit} className='review-form'>
         <h1>{selectedCampaign.campaign_title}</h1>
       <br />
       <label>

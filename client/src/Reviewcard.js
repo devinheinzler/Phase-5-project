@@ -8,7 +8,7 @@ console.log(review)
 
 
     return (
-        <div>
+        <div className="review-list">
             <h1>{review.campaign_title}</h1>
             <h3>-{review.star_rating}/5 ⭐</h3>
             <h4>-{`${review.user.first_name} ${review.user.last_name}`}</h4>

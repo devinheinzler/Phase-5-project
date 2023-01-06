@@ -54,8 +54,8 @@ function Usersignup({toggleLoggedIn, setLoggedIn}) {
                     To get started, please sign up below!`}
                 </p>
             </div>
-            <form onSubmit={handleSignUp}>
-    <div className="email-pass-align">
+            <div className="signup-container">
+            <form className="signup-form" onSubmit={handleSignUp}>
     <small>Email Address:</small><input type="text" name="email_address" id="email_address" value={formData["email_address"]} onChange={(e) => setFormData({...formData, email_address: e.target.value})}/><br/>
     <small>Password:</small><input type="password" name="password" id="password" value={formData["password"]} onChange={(e) => setFormData({...formData, password: e.target.value})}/><br/>
     <small>First Name:</small><input type="text" name="first_name" id="first_name" value={formData["first_name"]} onChange={(e) => setFormData({...formData, first_name: e.target.value})}/><br/>
@@ -64,12 +64,11 @@ function Usersignup({toggleLoggedIn, setLoggedIn}) {
             <input type="password" value={passwordConfirm} onChange={e => setPasswordConfirm(e.target.value)} placeholder = "Confirm Password"/>
         </div> */}
     <br/>
-    <p>Already a user? <NavLink to={`./Login`}></NavLink></p>
     <button type="submit">
         Sign Up!
     </button>
-    </div>
 </form>
+</div>
         </div>
     )
 
