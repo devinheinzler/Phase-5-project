@@ -35,15 +35,13 @@ function handleClick(){
         character ?
         <div>
             <div className='race-class-title'>
-                <header>
-                    {character.race_name} <br/>
-                    {character.class_name}
-                </header>
+                <h1>
+                    {character.race_name} {character.class_name}
+                </h1>
                 <img src={character.class_image}/>
             </div>
             <div className='character-background'>
-                <h1>Background</h1><br/>
-                <h2>{character.character_alignment}</h2>
+                <h1>Background ({character.character_alignment}):</h1><br/>
                 <p>{character.character_background}</p>
             </div>
             <div className='race-traits'>

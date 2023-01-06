@@ -23,6 +23,7 @@ import Monsters from "./Monsters";
 import RuleIndex from "./RuleIndex";
 import SubclassIndex from "./SubclassIndex";
 import DatabaseNav from './DatabaseNav';
+import InDevelopment from './InDevelopment';
 
 const charactersUrl = "http://localhost:3000/characters"
 const campaignsUrl = "http://localhost:3000/campaigns"
@@ -116,6 +117,7 @@ const getRaces = () => {
             <Route path='/SubclassIndex' element={<SubclassIndex/>} />
             <Route path='/Usersignup' element={<Usersignup toggleLoggedIn={toggleLoggedIn} setLoggedIn={setLoggedIn} setCurrentUser = {setCurrentUser}/>} />
             <Route path='/DatabaseNav' element={<DatabaseNav/>} />
+            <Route path='/InDevelopment' element={<InDevelopment/>} />
           </Routes>
       </div>
     </UserProivder>

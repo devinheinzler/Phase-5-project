@@ -8,7 +8,7 @@ console.log(character)
 
 
     return (
-        <div>
+        <div className="character-list">
                 <h1>{character.character_name}</h1>
             <h2>{character.race_name} {character.class_name}</h2>
             <img src={character.character_image} alt="character image"/>

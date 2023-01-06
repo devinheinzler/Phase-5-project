@@ -13,7 +13,7 @@ function MyCampaign({currentUser}) {
 
     return(
         userCampaigns ?
-        <div>
+        <div className="my-campaign-list">
             <header>View Your Campaigns Below!</header>
             {userCampaigns.map(userCampaign => <MyCampaignCard key={userCampaign.id} userCampaign={userCampaign} />)}
         </div>

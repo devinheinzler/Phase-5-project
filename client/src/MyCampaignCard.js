@@ -7,7 +7,7 @@ function MyCampaignCard({userCampaign}) {
     // const {campaign_title, id, campaign_story} = campaign
 
     return (
-        <div>
+        <div className="my-campaign-card">
                 <h1>{userCampaign.campaign_title}</h1>
             <h2>Campaign Story:</h2>
             <p>{userCampaign.campaign_story}</p>

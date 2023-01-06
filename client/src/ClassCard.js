@@ -4,9 +4,9 @@ function ClassCard({eachClass}) {
 
 
     return (
-        <div>
+        <div className="class-card">
             <h1>{eachClass.name}</h1>
-            <NavLink to={`/class/${eachClass.index}`}>
+            <NavLink to={'/InDevelopment'}>
                 <button>View Class Details ➡</button>
             </NavLink>
         </div>

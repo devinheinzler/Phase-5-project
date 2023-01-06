@@ -1,17 +1,21 @@
-// import React from "react";
-// import { NavLink, useNavigate } from "react-router-dom";
-// import RaceCard from "./RaceCard";
+import React from "react";
+import { NavLink, useNavigate } from "react-router-dom";
+import RaceCard from "./RaceCard";
+import DatabaseNav from "./DatabaseNav";
 
-// function RaceIndex({races}) {
+function RaceIndex({races}) {
+console.log(races)
 
+    return(
+        races ?
+        <div>
+            <DatabaseNav/>
+            <header>Select a race below!</header>
+            {races.results.map(eachRace => <RaceCard key={eachRace.id} eachRace={eachRace} />)}
+        </div>
+        :
+        <p>Loading...</p>
+    )
+}
 
-//     return(
-//         races ?
-//         <div>
-//             <header>Select a race below!</header>
-//             {races.results.map(eachRace => <RaceCard key={eachRace.id} eachRace={eachRace})}
-//         </div>
-//     )
-// }
-
-// export default RaceIndex
+export default RaceIndex

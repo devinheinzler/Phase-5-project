@@ -15,9 +15,9 @@ function ShowReviews() {
 
     return(
         review ?
-        <div>
-            <h2>Campaign Title:</h2>
-            <p>{review.campaign_title}</p>
+        <div className='show-review'>
+            <header>Campaign Title:</header>
+            <h1>{review.campaign_title}</h1>
             <h2>How it Went:</h2>
             <p>{review.review_content}</p>
             <h3>Rating:</h3>
