@@ -1,5 +1,5 @@
 class Character < ApplicationRecord
-    belongs_to :campaign
+    belongs_to :campaign, optional: true
     belongs_to :user
     belongs_to :character_template
     # has_many :user_characters

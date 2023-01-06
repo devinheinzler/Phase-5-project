@@ -1,7 +1,7 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 
-function MyCharacterCard({userCharacter}) {
+function MyCharacterCard({userCharacter, handleDeleteCharacter}) {
 
     return (
         <div>
@@ -11,6 +11,7 @@ function MyCharacterCard({userCharacter}) {
             <NavLink to={`/character/${userCharacter.id}`}>
                 <button>View Character Details ➡</button>
             </NavLink>
+            <button onClick={() => handleDeleteCharacter(userCharacter.id)}>Delete Character ❌</button>
         </div>
     )
 

@@ -44,9 +44,8 @@ function Login({toggleLoggedIn, setCurrentUser}) {
         <div className='logout-align'>
             <p>
                 logged in as {localStorage.email_address}!
-                <p>
                     <button onClick={() => logout()}>Logout</button>
-                </p>
+                
             </p>
         </div>
         :

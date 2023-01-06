@@ -40,8 +40,9 @@ class CharactersController < ApplicationController
     end
 
     def destroy
-        Character.find(params[:id]).destroy
-        render json: {}, status: :ok
+        Character.find(params[:user_character_id]).destroy
+        userCharacters = Character.where('user_id = ?', params[:user_id])
+        render json: userCharacters, status: :ok
     end
 
     def user_characters
@@ -50,7 +51,6 @@ class CharactersController < ApplicationController
         userCharacters = user.characters
         render json: userCharacters, status: :ok
     end
-
 
     private
     def character_params

@@ -24,6 +24,9 @@ function Navbar() {
                     <NavLink to={`/reviews`}>
                         <button>Reviews</button>
                     </NavLink>
+                    <NavLink to={`/Database`}>
+                        <button>Database</button>
+                    </NavLink>
                     {localStorage.email_address ?
                     <>
                     
