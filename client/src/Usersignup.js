@@ -3,7 +3,7 @@ import { NavLink, useNavigate } from "react-router-dom";
 import UserContext from "./Context/UserContext";
 
 
-function Usersignup({toggleLoggedIn}) {
+function Usersignup({toggleLoggedIn, setLoggedIn}) {
 
     const navigate = useNavigate()
     const [formData, setFormData] = useState({email_address: "", password: "", first_name: "", last_name: ""})
@@ -15,6 +15,7 @@ function Usersignup({toggleLoggedIn}) {
 
     function handleSignUp(e) {
         e.preventDefault();
+
         console.log("hitting this thing")
     
         // if (formData.password !== passwordConfirm) {
@@ -36,8 +37,9 @@ function Usersignup({toggleLoggedIn}) {
                 res.json().then(newUser => {
                     localStorage.user = JSON.stringify(newUser)
                     setUser(newUser)
-                    toggleLoggedIn() 
-                navigate('/Landing')})
+                    // toggleLoggedIn()
+                    // setLoggedIn(true) 
+                navigate('/characters')})
                 }
                 else {
                     res.json().then(res => console.log(res))

@@ -28,6 +28,7 @@ function handleClick(){
         })})
         .then(res => res.json()
         .then(console.log)
+        // navigate('/MyCharacter')
         )}
 
     return(
